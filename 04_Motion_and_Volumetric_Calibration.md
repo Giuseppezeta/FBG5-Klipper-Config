@@ -79,3 +79,37 @@ Anche se abbiamo impostato il valore nominale di fabbrica di **`4.69`** per l'Or
     *   Se è esattamente **20 mm**, la calibrazione è perfetta.
     *   Se è diversa (es. 24 mm, quindi ha estruso solo 96 mm), ricalcola il valore con la formula:
         $$\text{Nuovo rotation\_distance} = \text{Vecchio rotation\_distance} \times \frac{\text{Millimetri Estrusi Reali}}{100}$$
+
+---
+
+## 5. Livellamento del Piatto e Bed Mesh Manuale
+
+Dato che la stampante non è dotata di sensore fisico (BLTouch/CRTouch) ma usa il finecorsa Z meccanico standard, Klipper gestisce la compensazione delle imperfezioni del piatto tramite una **Bed Mesh manuale** assistita tramite la console web.
+
+### 🛠️ Step 1: Generare la Bed Mesh Manuale
+1.  Riscalda il piatto alla tua temperatura d'uso abituale (es. 60°C per il PLA) e attendi 5 minuti affinché le dilatazioni termiche si stabilizzino.
+2.  Su Mainsail, clicca o digita nella console il comando della macro personalizzata che abbiamo configurato:
+    ```gcode
+    CREA_MESH_MANUALE
+    ```
+3.  La stampante si muoverà in sequenza su **9 punti del piatto** (una griglia 3x3).
+4.  Per ciascun punto, l'ugello si abbasserà vicino al piatto:
+    *   Fai scorrere un foglio di carta da stampante standard sotto l'ugello.
+    *   Usa l'interfaccia di Mainsail (pulsanti Z+ / Z-) per alzare o abbassare l'ugello finché la carta non fa una leggera resistenza (deve scorrere ma fare attrito, senza bloccarsi).
+    *   Clicca su **Accept** per salvare la quota di quel punto e passare al successivo.
+5.  Una volta completati tutti i 9 punti, digita in console per salvare permanentemente la mesh ed effettuare il restart del firmware:
+    ```gcode
+    SAVE_CONFIG
+    ```
+    *Questo salverà la mesh sotto il profilo denominato `default` nella sezione finale del tuo `printer.cfg`.*
+
+### 🛠️ Step 2: Abilitare il Caricamento ad inizio stampa
+Una volta salvata la mesh `default`, puoi fare in modo che OrcaSlicer la carichi automaticamente prima di ogni stampa:
+1.  Apri **OrcaSlicer** e vai sulle impostazioni della stampante (`FlyingBear Ghost 5 0.4 nozzle New`).
+2.  Nella scheda **Machine G-code**, individua il **Machine start G-code**.
+3.  Trova la riga commentata:
+    `; BED_MESH_PROFILE LOAD=default`
+4.  **Rimuovi il punto e virgola `;`** per renderla attiva:
+    `BED_MESH_PROFILE LOAD=default`
+5.  Salva il profilo stampante. Adesso, Klipper applicherà la compensazione ad ogni stampa, correggendo le altezze Z in tempo reale durante i movimenti!
+
