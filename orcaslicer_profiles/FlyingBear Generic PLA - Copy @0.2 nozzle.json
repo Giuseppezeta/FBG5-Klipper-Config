@@ -1,0 +1,25 @@
+{
+    "filament_flow_ratio": [
+        "0.98"
+    ],
+    "filament_max_volumetric_speed": [
+        "2.0"
+    ],
+    "filament_retraction_length": [
+        "0.8"
+    ],
+    "filament_settings_id": [
+        "FlyingBear Generic PLA - Copy @0.2 nozzle"
+    ],
+    "from": "User",
+    "inherits": "FlyingBear Generic PLA",
+    "is_custom_defined": "0",
+    "name": "FlyingBear Generic PLA - Copy @0.2 nozzle",
+    "nozzle_temperature": [
+        "210"
+    ],
+    "nozzle_temperature_initial_layer": [
+        "215"
+    ],
+    "version": "2.2.0.4"
+}
