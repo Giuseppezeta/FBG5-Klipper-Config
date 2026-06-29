@@ -1,0 +1,63 @@
+{
+	"cool_plate_temp": [
+		"70"
+	],
+	"cool_plate_temp_initial_layer": [
+		"70"
+	],
+	"eng_plate_temp": [
+		"70"
+	],
+	"eng_plate_temp_initial_layer": [
+		"70"
+	],
+	"filament_extruder_variant": [
+		"Direct Drive Standard"
+	],
+	"filament_flow_ratio": [
+		"0.96"
+	],
+	"filament_max_volumetric_speed": [
+		"8"
+	],
+	"filament_retraction_length": [
+		"1.2"
+	],
+	"filament_settings_id": [
+		"FlyingBear Generic PETG - Copy"
+	],
+	"from": "User",
+	"hot_plate_temp": [
+		"75"
+	],
+	"hot_plate_temp_initial_layer": [
+		"80"
+	],
+	"inherits": "FlyingBear Generic PLA",
+	"name": "FlyingBear Generic PETG - Copy",
+	"nozzle_temperature": [
+		"235"
+	],
+	"nozzle_temperature_initial_layer": [
+		"240"
+	],
+	"supertack_plate_temp": [
+		"45"
+	],
+	"supertack_plate_temp_initial_layer": [
+		"45"
+	],
+	"textured_cool_plate_temp": [
+		"50"
+	],
+	"textured_cool_plate_temp_initial_layer": [
+		"50"
+	],
+	"textured_plate_temp": [
+		"75"
+	],
+	"textured_plate_temp_initial_layer": [
+		"80"
+	],
+	"version": "2.2.0.4"
+}
