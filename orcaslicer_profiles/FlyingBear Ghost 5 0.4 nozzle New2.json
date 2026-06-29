@@ -1,0 +1,26 @@
+{
+    "deretraction_speed": [
+        "40"
+    ],
+    "from": "User",
+    "gcode_flavor": "klipper",
+    "inherits": "FlyingBear Ghost 6 0.4 nozzle",
+    "is_custom_defined": "0",
+    "machine_start_gcode": "M104 S[nozzle_temperature_initial_layer] ; Imposta temp ugello provvisoria\nM140 S[heatbed_temperature_initial_layer] ; Imposta temp piatto\nG90 ; Coordinate assolute\nM83 ; Estrusore in modalità relativa\nG28 ; Homing di tutti gli assi\n; BED_MESH_PROFILE LOAD=default ; Commentato - Abilita solo dopo aver creato e salvato una mesh manuale con SAVE_CONFIG\nG1 Z10 F3000 ; Alza l'ugello per sicurezza\nM190 S[heatbed_temperature_initial_layer] ; Attendi temp piatto\nM109 S[nozzle_temperature_initial_layer] ; Attendi temp ugello\n; --- Linea di Spurgo (Purge Line) ---\nG1 X2 Y10 Z0.28 F3000 ; Vai al punto di partenza dello spurgo\nG1 Y140 E10 F1200 ; Traccia prima linea\nG1 X2.4 F3000 ; Piccolo spostamento laterale\nG1 Y10 E20 F1200 ; Traccia seconda linea indietro\nG92 E0 ; Azzera estrusore",
+    "machine_end_gcode": "G91 ;use relative coordinates\nG1 E-1.5 F1500 ;retract the filament for Direct Drive\nG1 X5 Y5 Z0.2 F5000 ;wipe\nG1 Z5 F1500 ;raise z\nG90 ;use absolute coordinates\nG1 X10 Y200 F5000 ;park print head\n\nM107 ;turn off fan\nM104 S0 ;turn off hotend\nM140 S0 ;turn off heatbed\nM84 ;disable motors",
+    "name": "FlyingBear Ghost 5 0.4 nozzle New2",
+    "print_host": "192.168.1.206",
+    "print_host_webui": "http://192.168.1.206/?printer=18611f42850ab9b97521e96c3c8c6182#/",
+    "printer_settings_id": "FlyingBear Ghost 5 0.4 nozzle New2",
+    "printhost_apikey": "giuse",
+    "retraction_length": [
+        "1.0"
+    ],
+    "retraction_speed": [
+        "40"
+    ],
+    "version": "2.2.0.4",
+    "z_hop": [
+        "0.2"
+    ]
+}
